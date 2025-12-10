@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Chatbot - AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Ensteum Bot</h1>
+                <button class="btn-new-chat" id="newChatBtn">
+                    <span class="icon">+</span>
+                    New Chat
+                </button>
+            </div>
+            
+            <div class="chat-list" id="chatList">
+                <!-- Chat items will be dynamically added here -->
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connecting...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <div class="chat-title-container">
+                    <h2 id="currentChatTitle">Ensteum Bot</h2>
+                    <button class="btn-icon" id="editTitleBtn" title="Edit title">
+                        <span class="icon"></span>
+                    </button>
+                </div>
+                <div class="chat-actions">
+                    <button class="btn-icon" id="clearChatBtn" title="Clear chat">
+                        <span class="icon">🗑️</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-message" id="welcomeMessage">
+                    <div class="welcome-icon">🇬🇭</div>
+                    <h2>Welcome to Ghana Chatbot</h2>
+                    <p>Ask me anything about Ghana - history, culture, politics, economy, and more!</p>
+                    <div class="example-questions">
+                        <h3>Try asking:</h3>
+                        <div class="example-chips">
+                            <button class="example-chip" data-question="What is the capital of Ghana?">What is the capital of Ghana?</button>
+                            <button class="example-chip" data-question="Tell me about Ghana's history">Tell me about Ghana's history</button>
+                            <button class="example-chip" data-question="What are the main languages spoken in Ghana?">What are the main languages in Ghana?</button>
+                            <button class="example-chip" data-question="What is Ghana's economy based on?">What is Ghana's economy based on?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <button class="btn-icon voice-btn" id="voiceBtn" title="Voice input">
+                        <span class="icon">🎤</span>
+                    </button>
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Ask me anything about Ghana..."
+                        rows="1"
+                    ></textarea>
+                    <button class="btn-send" id="sendBtn" title="Send message">
+                        <span class="icon">➤</span>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="hint">Press Enter to send, Shift+Enter for new line</span>
+                    <button class="btn-link" id="uploadPdfBtn">📄 Upload PDF</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden file input for PDF upload -->
+    <input type="file" id="pdfInput" accept=".pdf" style="display: none;">
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Thinking...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

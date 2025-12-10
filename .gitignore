@@ -1,0 +1,21 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# virtual environments
+venv/
+.env/
+
+# database files
+*.sqlite3
+data/chroma_db/
+
+# backup files
+*.backup*
+*.py.backup*
+*.js.backup*
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
