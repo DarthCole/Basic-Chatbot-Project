@@ -444,47 +444,6 @@ async function sendMessage() {
     }
 }
     
-    // Add user message to UI immediately
-    addMessageToUI('user', message, [], false);
-    if (userInput) {
-        userInput.value = '';
-    }
-    
-    // Show loading indicator
-    const loadingId = 'loading-' + Date.now();
-    addMessageToUI('assistant', 'Thinking...', [], true, loadingId);
-    
-    try {
-        const response = await fetch(`${API_BASE_URL}/direct-ask`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                question: message,
-                chat_id: currentChatId
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-        }
-        
-        const data = await response.json();
-        
-        // Update loading message with actual response
-        updateMessage(loadingId, 'assistant', data.answer, data.sources);
-        
-        // Speak response if voice is enabled
-        if (isVoiceEnabled && data.answer) {
-            speakResponse(data.answer);
-        }
-        
-    } catch (error) {
-        console.error('Failed to send message:', error);
-        updateMessage(loadingId, 'assistant', 
-            `Error: ${error.message}. Please check if the backend server is running.`, []);
-}
-
-
 // Handle PDF upload
 async function handlePdfUpload(event) {
     const file = event.target.files[0];
