@@ -48,9 +48,9 @@ class OllamaEmbeddingFunction:
 
 class EnhancedRAGSystem:
     def __init__(self, 
-                 ollama_model: str = 'llama3.2:latest',
-                 chroma_path: str = None,
-                 embedding_batch_size: int = 5):
+            ollama_model: str = "llama3.2:latest",
+            chroma_path: str = None,
+            embedding_batch_size: int = 5):
         
         if chroma_path is None:
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
